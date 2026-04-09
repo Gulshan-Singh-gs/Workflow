@@ -155,7 +155,38 @@
                     background-color: #cc0000;
                     transform: translateY(-2px);
                     box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
-                }
+                }/* Styling for the new Hero Button */
+.hero-actions {
+  margin-top: 32px; /* Adds space between the paragraph and the button */
+  display: flex;
+  justify-content: center; /* Centers the button if your hero text is centered */
+}
+
+.hero-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: inherit; /* Inherits the modern sans-serif font from your body */
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 0, 0, 0.5); /* Subtle red border */
+  border-radius: 8px; /* Matches the slightly rounded corners of the cards */
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 14px 0 rgba(255, 0, 0, 0.1); /* Slight red glow */
+}
+
+.hero-primary-btn:hover {
+  background-color: #ff0000; /* Solid red background on hover */
+  border-color: #ff0000;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.23); /* Enhanced glow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
     </style>
 </head>
 <body class="antialiased font-sans flex flex-col min-h-screen">
@@ -177,7 +208,7 @@
             </span>
         </h1>
         <p class="text-xl md:text-2xl text-yt-light max-w-3xl mx-auto font-light leading-relaxed">
-            From Idea to Published Video in Minutes. Leverage the power of advanced AI models to script, visualize, and generate your content seamlessly.
+            From Idea to Detailed Scritps in Minutes. Leverage the power of advanced AI models to script, visualize, and generate your content seamlessly.
         </p>
     </header>
 
