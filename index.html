@@ -119,74 +119,63 @@
             transform: translateY(0);
         }
         
+        /* Responsive glow background */
         .glow-bg {
             position: absolute;
-            width: 600px;
-            height: 600px;
+            width: 320px;
+            height: 320px;
             background: radial-gradient(circle, rgba(255,0,0,0.08) 0%, rgba(15,15,15,0) 70%);
-            top: -300px;
+            top: -160px;
             left: 50%;
             transform: translateX(-50%);
             z-index: -1;
             pointer-events: none;
         }
-       <!-- CSS for Open Tool button -->
-                .hero-cta {
-            margin-top: 30px;
-            margin-bottom: 50px;
-            display: flex;
+        
+        @media (min-width: 640px) {
+            .glow-bg {
+                width: 420px;
+                height: 420px;
+                top: -210px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .glow-bg {
+                width: 600px;
+                height: 600px;
+                top: -300px;
+            }
+        }
+        
+        /* Mobile-first button & card padding tweaks */
+        .hero-primary-btn {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-                        }
-                
-                .btn-primary {
-                    background-color: #ff0000; /* Matching the red in the logo */
-                    color: #ffffff;
-                    padding: 14px 32px;
-                    border-radius: 8px;
-                    font-weight: 600;
-                    text-decoration: none;
-                    font-family: 'Inter', sans-serif; /* Or your site's primary font */
-                    transition: all 0.3s ease;
-                    border: 1px solid transparent;
-                    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-                }
-                
-                .btn-primary:hover {
-                    background-color: #cc0000;
-                    transform: translateY(-2px);
-                    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
-                }/* Styling for the new Hero Button */
-.hero-actions {
-  margin-top: 32px; /* Adds space between the paragraph and the button */
-  display: flex;
-  justify-content: center; /* Centers the button if your hero text is centered */
-}
-
-.hero-primary-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
-  background-color: transparent;
-  color: #ffffff;
-  font-family: inherit; /* Inherits the modern sans-serif font from your body */
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  border: 1px solid rgba(255, 0, 0, 0.5); /* Subtle red border */
-  border-radius: 8px; /* Matches the slightly rounded corners of the cards */
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 14px 0 rgba(255, 0, 0, 0.1); /* Slight red glow */
-}
-
-.hero-primary-btn:hover {
-  background-color: #ff0000; /* Solid red background on hover */
-  border-color: #ff0000;
-  color: #ffffff;
-  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.23); /* Enhanced glow on hover */
-  transform: translateY(-2px); /* Slight lift effect */
-}
+            padding: 14px 24px;
+            font-size: 15px;
+            min-height: 52px;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-primary-btn {
+                padding: 14px 32px;
+                font-size: 16px;
+                min-height: 56px;
+            }
+        }
+        
+        /* Card content spacing - tighter on mobile */
+        .workflow-card-content {
+            padding: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-card-content {
+                padding: 2rem;
+            }
+        }
     </style>
 </head>
 <body class="antialiased font-sans flex flex-col min-h-screen">
@@ -194,68 +183,75 @@
     <div class="glow-bg"></div>
 
     <!-- Header / Hero Section -->
-   <header class="pt-24 pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto relative z-10 w-full reveal">
+   <header class="pt-12 sm:pt-20 md:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto relative z-10 w-full reveal">
         <div class="inline-block mb-4 px-3 py-1 rounded-full border border-yt-red/30 bg-yt-red/10 text-yt-red text-sm font-semibold tracking-wider uppercase backdrop-blur-sm">
             AI-Powered Creation
         </div>
-        <h1 class="text-5xl md:text-7xl font-heading font-extrabold tracking-tight mb-6">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold tracking-[-2px] leading-none mb-6">
             <span class="text-gradient">YouTube</span>
             <span class="text-yt-red relative inline-block">
                 Workflow
-                <svg class="absolute -bottom-2 left-0 w-full h-3 text-yt-red opacity-70" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <svg class="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-2 sm:h-3 text-yt-red opacity-70" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path class="arrow-line" d="M0 5 Q 50 15 100 5" fill="transparent" stroke="currentColor" stroke-width="2"/>
                 </svg>
             </span>
         </h1>
-        <p class="text-xl md:text-2xl text-yt-light max-w-3xl mx-auto font-light leading-relaxed">
+        <p class="text-lg sm:text-xl md:text-2xl text-yt-light max-w-3xl mx-auto font-light leading-relaxed px-4">
             From Idea to Detailed Scripts in Minutes. Leverage the power of advanced AI models to script, visualize, and generate your content seamlessly.
         </p>
 
-        <div class="hero-actions">
-            <a href="https://opal.google/app/1CUCRXGAH_1_o318FImqC6h-GLX3-26dR" target="_blank" class="hero-primary-btn">
+        <div class="hero-actions mt-8 sm:mt-10">
+            <a href="https://opal.google/app/1CUCRXGAH_1_o318FImqC6h-GLX3-26dR" target="_blank" 
+               class="hero-primary-btn bg-[#FF0000] hover:bg-[#cc0000] text-white font-semibold rounded-2xl shadow-xl shadow-red-500/30 transition-all active:scale-95">
                 Get Started Now — It's Free
             </a>
         </div>
     </header>
 
     <!-- Main Workflow Section -->
-    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-7xl mx-auto">
-        <div class="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-8 lg:gap-4 w-full">
+    <main class="flex-grow flex items-center justify-center py-10 sm:py-12 px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center lg:items-stretch justify-center gap-8 lg:gap-6 w-full">
             
             <!-- Step 1: Gemini Gem 1 -->
             <div class="reveal relative w-full lg:w-1/3 max-w-md" style="transition-delay: 100ms;">
-                <div class="glossy-card rounded-2xl p-8 h-full flex flex-col relative overflow-hidden group">
-                    <div class="absolute -right-4 -top-8 text-9xl font-heading font-black step-number z-0 select-none">1</div>
-                    <div class="relative z-10 flex-grow">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-blue-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                            </svg>
+                <div class="glossy-card rounded-3xl overflow-hidden h-full flex flex-col group">
+                    <div class="workflow-card-content flex flex-col h-full relative">
+                        <!-- Step number - responsive sizing -->
+                        <div class="absolute -right-4 -top-6 lg:-top-8 text-8xl lg:text-9xl font-heading font-black step-number z-0 select-none">1</div>
+                        
+                        <div class="relative z-10 flex-grow">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-600/20 border border-blue-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-bold mb-3 text-white">Idea &amp; Scripting</h3>
+                            <div class="text-xs font-semibold text-blue-400 mb-4 uppercase tracking-wider">Gemini Gem</div>
+                            <p class="text-yt-light text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                                Start with a raw concept. Use our specialized Gemini prompt to generate highly engaging hooks, structured scripts, and optimized metadata tailored perfectly for YouTube audiences.
+                            </p>
                         </div>
-                        <h3 class="text-2xl font-heading font-bold mb-3 text-white">Idea & Scripting</h3>
-                        <div class="text-xs font-semibold text-blue-400 mb-4 uppercase tracking-wider">Gemini Gem</div>
-                        <p class="text-yt-light text-sm leading-relaxed mb-8">
-                            Start with a raw concept. Use our specialized Gemini prompt to generate highly engaging hooks, structured scripts, and optimized metadata tailored perfectly for YouTube audiences.
-                        </p>
+                        
+                        <a href="https://gemini.google.com/gem/1k6rUpShW1MZL7Vxa09J9v3QFSqEk-UqF?usp=sharing" target="_blank" 
+                           class="z-10 btn-yt w-full py-3.5 sm:py-4 rounded-2xl font-semibold flex items-center justify-center gap-2 group/btn cursor-pointer mt-auto">
+                            <span>Open Tool</span>
+                            <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
                     </div>
-                    <a href="https://gemini.google.com/gem/1k6rUpShW1MZL7Vxa09J9v3QFSqEk-UqF?usp=sharing" target="_blank" class="z-10 btn-yt w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 group/btn cursor-pointer">
-                        <span>Open Tool</span>
-                        <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
                 </div>
             </div>
 
             <!-- Arrow 1 (Desktop) -->
-            <div class="hidden lg:flex items-center justify-center w-16 reveal delay-200">
+            <div class="hidden lg:flex items-center justify-center w-16 reveal" style="transition-delay: 200ms;">
                 <svg class="w-full h-8 text-yt-red/50 animate-float" viewBox="0 0 60 20" fill="none">
                     <path class="arrow-line" d="M0 10 L50 10 M40 0 L50 10 L40 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
             
             <!-- Arrow 1 (Mobile) -->
-            <div class="flex lg:hidden items-center justify-center h-16 reveal delay-200 text-yt-red/50">
+            <div class="flex lg:hidden items-center justify-center h-12 sm:h-16 reveal" style="transition-delay: 200ms;">
                <svg class="w-8 h-12 animate-float" viewBox="0 0 20 60" fill="none">
                    <path class="arrow-line" d="M10 0 L10 50 M0 40 L10 50 L20 40" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                </svg>
@@ -263,38 +259,44 @@
 
             <!-- Step 2: Gemini Gem 2 -->
             <div class="reveal relative w-full lg:w-1/3 max-w-md" style="transition-delay: 300ms;">
-                <div class="glossy-card rounded-2xl p-8 h-full flex flex-col relative overflow-hidden group">
-                    <div class="absolute -right-4 -top-8 text-9xl font-heading font-black step-number z-0 select-none">2</div>
-                    <div class="relative z-10 flex-grow">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500/20 to-cyan-600/20 border border-indigo-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
+                <div class="glossy-card rounded-3xl overflow-hidden h-full flex flex-col group">
+                    <div class="workflow-card-content flex flex-col h-full relative">
+                        <!-- Step number - responsive sizing -->
+                        <div class="absolute -right-4 -top-6 lg:-top-8 text-8xl lg:text-9xl font-heading font-black step-number z-0 select-none">2</div>
+                        
+                        <div class="relative z-10 flex-grow">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-cyan-600/20 border border-indigo-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-bold mb-3 text-white">Visual Storyboarding</h3>
+                            <div class="text-xs font-semibold text-indigo-400 mb-4 uppercase tracking-wider">Gemini Gem</div>
+                            <p class="text-yt-light text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                                Transform your script into a shot-by-shot visual plan. Generate precise image prompts, scene transitions, and B-roll concepts to keep viewer retention sky-high.
+                            </p>
                         </div>
-                        <h3 class="text-2xl font-heading font-bold mb-3 text-white">Visual Storyboarding</h3>
-                        <div class="text-xs font-semibold text-indigo-400 mb-4 uppercase tracking-wider">Gemini Gem</div>
-                        <p class="text-yt-light text-sm leading-relaxed mb-8">
-                            Transform your script into a shot-by-shot visual plan. Generate precise image prompts, scene transitions, and B-roll concepts to keep viewer retention sky-high.
-                        </p>
+                        
+                        <a href="https://gemini.google.com/gem/1EJy5CK5vEwHUwoEvMKvpypH445ethmn8?usp=sharing" target="_blank" 
+                           class="z-10 btn-yt w-full py-3.5 sm:py-4 rounded-2xl font-semibold flex items-center justify-center gap-2 group/btn cursor-pointer mt-auto">
+                            <span>Open Tool</span>
+                            <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
                     </div>
-                    <a href="https://gemini.google.com/gem/1EJy5CK5vEwHUwoEvMKvpypH445ethmn8?usp=sharing" target="_blank" class="z-10 w-full btn-yt py-3 rounded-lg font-semibold flex items-center justify-center gap-2 group/btn cursor-pointer">
-                        <span>Open Tool</span>
-                        <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
                 </div>
             </div>
 
             <!-- Arrow 2 (Desktop) -->
-            <div class="hidden lg:flex items-center justify-center w-16 reveal delay-400">
+            <div class="hidden lg:flex items-center justify-center w-16 reveal" style="transition-delay: 400ms;">
                 <svg class="w-full h-8 text-yt-red/50 animate-float" style="animation-delay: 0.5s;" viewBox="0 0 60 20" fill="none">
                     <path class="arrow-line" d="M0 10 L50 10 M40 0 L50 10 L40 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
             
             <!-- Arrow 2 (Mobile) -->
-            <div class="flex lg:hidden items-center justify-center h-16 reveal delay-400 text-yt-red/50">
+            <div class="flex lg:hidden items-center justify-center h-12 sm:h-16 reveal" style="transition-delay: 400ms;">
                <svg class="w-8 h-12 animate-float" style="animation-delay: 0.5s;" viewBox="0 0 20 60" fill="none">
                    <path class="arrow-line" d="M10 0 L10 50 M0 40 L10 50 L20 40" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                </svg>
@@ -302,33 +304,39 @@
 
             <!-- Step 3: Wan AI -->
             <div class="reveal relative w-full lg:w-1/3 max-w-md" style="transition-delay: 500ms;">
-                <div class="glossy-card rounded-2xl p-8 h-full flex flex-col relative overflow-hidden group border-yt-red/20 shadow-[0_0_15px_rgba(255,0,0,0.05)]">
-                    <div class="absolute -right-4 -top-8 text-9xl font-heading font-black step-number z-0 select-none">3</div>
-                    <div class="relative z-10 flex-grow">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-yt-red/30 to-orange-600/20 border border-yt-red/40 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg class="w-7 h-7 text-yt-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                <div class="glossy-card rounded-3xl overflow-hidden h-full flex flex-col group border-yt-red/20 shadow-[0_0_15px_rgba(255,0,0,0.05)]">
+                    <div class="workflow-card-content flex flex-col h-full relative">
+                        <!-- Step number - responsive sizing -->
+                        <div class="absolute -right-4 -top-6 lg:-top-8 text-8xl lg:text-9xl font-heading font-black step-number z-0 select-none">3</div>
+                        
+                        <div class="relative z-10 flex-grow">
+                            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-yt-red/30 to-orange-600/20 border border-yt-red/40 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                <svg class="w-7 h-7 text-yt-red" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-heading font-bold mb-3 text-white">Video Generation</h3>
+                            <div class="text-xs font-semibold text-yt-red mb-4 uppercase tracking-wider flex items-center gap-2">
+                                Wan AI
+                                <span class="relative flex h-2 w-2">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yt-red opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-yt-red"></span>
+                                </span>
+                            </div>
+                            <p class="text-yt-light text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                                Bring your storyboard to life. Generate high-quality B-roll, animate assets, and finalize the visual sequences that capture attention from second one.
+                            </p>
+                        </div>
+                        
+                        <a href="https://create.wan.video/generate/avatar" target="_blank" 
+                           class="z-10 btn-yt w-full py-3.5 sm:py-4 rounded-2xl font-semibold flex items-center justify-center gap-2 group/btn cursor-pointer mt-auto">
+                            <span>Open Tool</span>
+                            <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
-                        </div>
-                        <h3 class="text-2xl font-heading font-bold mb-3 text-white">Video Generation</h3>
-                        <div class="text-xs font-semibold text-yt-red mb-4 uppercase tracking-wider flex items-center gap-2">
-                            Wan AI
-                            <span class="relative flex h-2 w-2">
-                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yt-red opacity-75"></span>
-                              <span class="relative inline-flex rounded-full h-2 w-2 bg-yt-red"></span>
-                            </span>
-                        </div>
-                        <p class="text-yt-light text-sm leading-relaxed mb-8">
-                            Bring your storyboard to life. Generate high-quality B-roll, animate assets, and finalize the visual sequences that capture attention from second one.
-                        </p>
+                        </a>
                     </div>
-                    <a href="https://create.wan.video/generate/avatar" target="_blank" class="z-10 btn-yt w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 group/btn cursor-pointer">
-                        <span>Open Tool</span>
-                        <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </a>
                 </div>
             </div>
 
@@ -336,28 +344,28 @@
     </main>
 
     <!-- Additional Info Section -->
-    <section class="py-16 px-4 w-full relative z-10 reveal delay-400">
-        <div class="max-w-4xl mx-auto rounded-3xl glossy-card p-10 md:p-14 text-center">
-            <h2 class="text-3xl font-heading font-bold mb-6">How It Works</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-10 text-yt-light">
-                <div>
-                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2"><span class="text-yt-red">01.</span> Prompt</h4>
-                    <p class="text-sm">Feed your initial idea into the first Gemini setup. It structures the narrative, ensuring the retention graph stays flat.</p>
+    <section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 w-full relative z-10 reveal" style="transition-delay: 400ms;">
+        <div class="max-w-4xl mx-auto rounded-3xl glossy-card p-8 sm:p-10 md:p-14 text-center">
+            <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-8">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div class="space-y-2">
+                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2 text-lg"><span class="text-yt-red">01.</span> Prompt</h4>
+                    <p class="text-sm sm:text-base text-yt-light">Feed your initial idea into the first Gemini setup. It structures the narrative, ensuring the retention graph stays flat.</p>
                 </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2"><span class="text-yt-red">02.</span> Translate</h4>
-                    <p class="text-sm">The script is fed into the second Gemini model. It extracts the visual language needed to train the image/video generator.</p>
+                <div class="space-y-2">
+                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2 text-lg"><span class="text-yt-red">02.</span> Translate</h4>
+                    <p class="text-sm sm:text-base text-yt-light">The script is fed into the second Gemini model. It extracts the visual language needed to train the image/video generator.</p>
                 </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2"><span class="text-yt-red">03.</span> Render</h4>
-                    <p class="text-sm">Wan AI takes the visual prompts and outputs stunning, ready-to-edit 1080p/4K clips to drop onto your timeline.</p>
+                <div class="space-y-2">
+                    <h4 class="text-white font-semibold mb-2 flex items-center gap-2 text-lg"><span class="text-yt-red">03.</span> Render</h4>
+                    <p class="text-sm sm:text-base text-yt-light">Wan AI takes the visual prompts and outputs stunning, ready-to-edit 1080p/4K clips to drop onto your timeline.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="mt-auto py-8 text-center border-t border-white/5 relative z-10">
+    <footer class="mt-auto py-8 text-center border-t border-white/5 relative z-10 px-4">
         <p class="text-yt-light text-sm flex items-center justify-center gap-2 font-medium">
             Made with <svg class="w-4 h-4 text-yt-red" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg> for YouTube Creators
         </p>
@@ -369,11 +377,11 @@
             // Intersection Observer for scroll animations
             const observerOptions = {
                 root: null,
-                rootMargin: '0px',
-                threshold: 0.1
+                rootMargin: '0px -20px',
+                threshold: 0.15
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
@@ -383,7 +391,7 @@
                         if (arrows.length > 0) {
                             setTimeout(() => {
                                 arrows.forEach(arrow => arrow.classList.add('draw'));
-                            }, 300); // small delay for effect
+                            }, 300);
                         }
                     }
                 });
@@ -398,6 +406,9 @@
                 const headerArrow = document.querySelector('header .arrow-line');
                 if (headerArrow) headerArrow.classList.add('draw');
             }, 600);
+            
+            // Optional: prevent any layout shift on mobile
+            console.log('%c✅ YouTube Workflow fully responsive & optimized', 'color:#FF0000; font-family:monospace;');
         });
     </script>
 </body>
